@@ -11,11 +11,10 @@
 export default {
   data: function () {
     return {
-      message: "Welcome to Vue.js!",
+      message: "Happy Hour",
     };
   },
   created: function () {},
   methods: {},
 };
 </script>
-

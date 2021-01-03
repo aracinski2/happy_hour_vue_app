@@ -4,6 +4,7 @@ import Home from '../views/Home.vue';
 import Signup from '../views/Signup.vue';
 import Login from '../views/Login.vue';
 import Logout from '../views/Logout.vue';
+import RecipesShow from '../views/RecipesShow.vue';
 
 Vue.use(VueRouter)
 
@@ -36,12 +37,17 @@ const routes = [
     name: 'logout',
     component: Logout
   },
-]
+  {
+    path: '/recipes/:id',
+    name: 'recipes-show',
+    component: RecipesShow
+  },
+];
 
 const router = new VueRouter({
   mode: 'history',
   base: process.env.BASE_URL,
   routes
-})
+});
 
 export default router
