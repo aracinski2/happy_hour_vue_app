@@ -2,9 +2,11 @@
   <div class="recipes-index">
     <h1>{{ message }}</h1>
     <div v-for="recipe in recipes">
-      
+      <router-link v-bind:to="`/recipes/${recipe.recipe_id}`">
       <h3>{{ recipe.name }}</h3>
-      <h5>{{ recipe.alcoholic }}</h5>
+      </router-link>
+      <br>
+      <!-- <h5>{{ recipe.alcoholic }}</h5> -->
     </div>
     
 
@@ -28,8 +30,6 @@ export default {
     return {
       message: "Look at all these awesome recipes!",
       recipes: [],
-      // search: "",
-      // category: "",
     };
   },
   created: function () {

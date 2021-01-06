@@ -7,7 +7,7 @@ import Logout from '../views/Logout.vue';
 import RecipesIndex from '../views/RecipesIndex.vue';
 import RecipesShow from '../views/RecipesShow.vue';
 
-Vue.use(VueRouter)
+Vue.use(VueRouter);
 
 const routes = [
   {
