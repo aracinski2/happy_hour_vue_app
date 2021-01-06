@@ -1,7 +1,6 @@
 <template>
   <div class="recipes-show">
-    <h1>{{ message }}</h1>
-    <h3>{{ recipe.name }}</h3>
+    <h1>{{ recipe.name }}</h1>
     <h5>{{ recipe.alcoholic }}</h5>
     <h4>{{ recipe.instructions }}</h4>
 
@@ -12,6 +11,7 @@
 
         <h5>{{ ingredient.name }}: {{ recipe.measurements[index].measurement }}</h5>
     </div>
+    <button v-on:click="favoritesCreate()">Save!</button>
     
     
   </div>
@@ -40,6 +40,13 @@ export default {
       axios.get("/api/recipes/" + this.$route.params.id).then((response) => {
         console.log(response.data);
         this.recipe = response.data;
+      });
+    },
+    favoritesCreate: function () {
+      console.log("favorite created!");
+      axios.post("/api/favorites").then((response) => {
+        console.log(response.data);
+        this.favorite = response.data;
       });
     },
   },
