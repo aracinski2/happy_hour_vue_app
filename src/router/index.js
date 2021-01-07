@@ -6,6 +6,7 @@ import Login from '../views/Login.vue';
 import Logout from '../views/Logout.vue';
 import RecipesIndex from '../views/RecipesIndex.vue';
 import RecipesShow from '../views/RecipesShow.vue';
+import FavoritesIndex from '../views/FavoritesIndex.vue';
 
 Vue.use(VueRouter);
 
@@ -47,6 +48,11 @@ const routes = [
     path: '/recipes/:id',
     name: 'recipes-show',
     component: RecipesShow
+  },
+  {
+    path: '/favorites',
+    name: 'favorites-index',
+    component: FavoritesIndex
   },
 ];
 

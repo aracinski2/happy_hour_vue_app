@@ -2,7 +2,7 @@
   <div class="recipes-show">
     <h1>{{ recipe.name }}</h1>
     <h5>{{ recipe.alcoholic }}</h5>
-    <h4>{{ recipe.instructions }}</h4>
+    <h3>{{ recipe.instructions }}</h3>
 
     <!-- <div v-for="ingredient in ingredients"> -->
     <!-- </div> -->
@@ -43,8 +43,13 @@ export default {
       });
     },
     favoritesCreate: function () {
-      console.log("favorite created!");
-      axios.post("/api/favorites").then((response) => {
+      console.log("favorite create");
+      console.log(this.$route.params.id);
+      var params = {
+        recipe_id: this.$route.params.id,
+      };
+
+      axios.post("/api/favorites", params).then((response) => {
         console.log(response.data);
         this.favorite = response.data;
       });
