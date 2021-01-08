@@ -9,9 +9,9 @@
     </router-link> -->
     <button v-on:click="searchName()">Search</button>
 
-    <h1>Or</h1>
+    <h1>OR</h1>
 
-    <h3>Search by specific ingredients!:</h3>
+    <h3>Search by specific ingredients:</h3>
     <p><input type="text" v-model="ingredient1"></p>
     <p><input type="text" v-model="ingredient2"></p>
     <p><input type="text" v-model="ingredient3"></p>
@@ -40,7 +40,7 @@ import axios from "axios";
 export default {
   data: function () {
     return {
-      message: "Welcome to the search page!",
+      message: "Do we have what your looking for?",
       recipes: [],
       name: "",
       ingredient1: "",
