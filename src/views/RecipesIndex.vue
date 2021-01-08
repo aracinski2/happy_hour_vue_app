@@ -1,6 +1,10 @@
 <template>
   <div class="recipes-index">
     <h1>{{ message }}</h1>
+
+    <!-- <p>Search by a specific recipe name:<input type="text" v-model="name"></p>
+    <button v-on:click="searchIndex()">Search</button> -->
+
     <div v-for="recipe in recipes">
       <router-link v-bind:to="`/recipes/${recipe.recipe_id}`">
       <h3>{{ recipe.name }}</h3>
@@ -30,6 +34,7 @@ export default {
     return {
       message: "Look at all these awesome recipes!",
       recipes: [],
+      name: "",
     };
   },
   created: function () {
@@ -42,7 +47,7 @@ export default {
         search: this.search,
         category: this.category,
       };
-      console.log(this.$route.query.category);
+      console.log(this.$route.query);
       axios
         .get(
           "/api/recipes?search=" +
@@ -55,6 +60,16 @@ export default {
           this.recipes = response.data;
         });
     },
+    // searchIndex: function () {
+    //   console.log("recipes searchhhhh");
+    //   // console.log(this.$route.query);
+    //   axios
+    //     .get("/api/recipes?search=name&name=" + this.name)
+    //     .then((response) => {
+    //       console.log(response.data);
+    //       this.recipes = response.data;
+    //     });
+    // },
   },
 };
 </script>
