@@ -6,6 +6,7 @@
         <h3> {{ favorite.recipe.name }} </h3>
         <h5> {{ favorite.recipe.alcoholic }} </h5>
       </router-link>
+        <button v-on:click="favoritesDestroy()">Remove</button>
     </div>
   </div>
 </template>
@@ -32,6 +33,19 @@ export default {
       axios.get("/api/favorites").then((response) => {
         console.log(response.data);
         this.favorites = response.data;
+      });
+    },
+    favoritesDestroy: function () {
+      console.log("In favorites destroy");
+      console.log(this.$route.favorite);
+      // var params = {
+      //   id: this.,
+      // };
+      axios.delete("/api/favorites/" + this.$route).then((response) => {
+        console.log(response.data);
+        // var index = this.favorites.indexOf(this.currentFavorite);
+        // console.log(index);
+        // this.favorites.splice(index, 1);
       });
     },
   },
