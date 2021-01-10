@@ -56,9 +56,9 @@
       <section class="posts">
         <article v-for="recipe in recipes">
           <header>
-            <h2><a v-bind:href="'/recipes/' + recipe.recipe_id">{{ recipe.name }}</a></h2>
+            <h2><a v-bind:href="'/recipes/' + recipe.id">{{ recipe.name }}</a></h2>
           </header>
-          <a v-bind:href="'/recipes/' + recipe.recipe_id"><p>{{ recipe.instructions }}</p></a>
+          <a v-bind:href="'/recipes/' + recipe.id"><p>{{ recipe.instructions }}</p></a>
           <!-- <ul class="actions special">
             <li><a href="#" class="button">Full Story</a></li>
           </ul> -->

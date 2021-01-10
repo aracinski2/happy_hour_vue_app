@@ -33,7 +33,7 @@
             <h2><a v-bind:href="'/recipes/' + favorite.recipe_id">{{ favorite.recipe.name }}</a></h2>
           </header>
           <a v-bind:href="'/recipes/' + favorite.recipe_id"><p>{{ favorite.recipe.instructions }}</p></a>
-          <button v-on:click="favoritesDestroy()">Remove</button>
+          <button v-on:click="favoritesDestroy(favorite)">Remove</button>
           <!-- <ul class="actions special">
             <li><a href="#" class="button">Full Story</a></li>
           </ul> -->
@@ -62,6 +62,7 @@ export default {
     return {
       message: "Welcome to your favorites!",
       favorites: [],
+      // favorite: [],
     };
   },
   created: function () {
@@ -75,17 +76,11 @@ export default {
         this.favorites = response.data;
       });
     },
-    favoritesDestroy: function () {
-      console.log("In favorites destroy");
-      console.log(this.$route.favorite);
-      // var params = {
-      //   id: this.,
-      // };
-      axios.delete("/api/favorites/" + this.$route).then((response) => {
-        console.log(response.data);
-        // var index = this.favorites.indexOf(this.currentFavorite);
-        // console.log(index);
-        // this.favorites.splice(index, 1);
+    favoritesDestroy: function (favorite) {
+      axios.delete("/api/favorites/" + favorite.id).then((response) => {
+        console.log("favorite destroy", response);
+        var index = this.favorites.indexOf(favorite);
+        this.favorites.splice(index, 1);
       });
     },
   },
