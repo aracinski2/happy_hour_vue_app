@@ -1,18 +1,22 @@
 <template>
   <div class="recipes-show">
-    <h1>{{ recipe.name }}</h1>
-    <h5>{{ recipe.alcoholic }}</h5>
-    <h3>{{ recipe.instructions }}</h3>
+    <!-- Main -->
+		<div id="main">
 
-    <!-- <div v-for="ingredient in ingredients"> -->
-    <!-- </div> -->
-     <h3>Ingredients:</h3>
-     <div v-for="(ingredient, index) in recipe.ingredients">
+      <!-- Post -->
+      <section class="post">
+        <header class="major">
+          <h1>{{ recipe.name }}</h1>
+          <p>{{ recipe.instructions }}<br />
+            <h3>Ingredients:</h3>
+            <div v-for="(ingredient, index) in recipe.ingredients">
+              <h5>{{ ingredient.name }}: {{ recipe.measurements[index].measurement }}</h5>
+          </div>
+          <button v-on:click="favoritesCreate()">Save!</button></p>
+          </header>
+      </section>
 
-        <h5>{{ ingredient.name }}: {{ recipe.measurements[index].measurement }}</h5>
     </div>
-    <button v-on:click="favoritesCreate()">Save!</button>
-    
     
   </div>
 </template>

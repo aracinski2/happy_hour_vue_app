@@ -1,25 +1,35 @@
 <template>
   <div class="recipes-index">
-    <h1>{{ message }}</h1>
+    <!-- Main -->
+    <div id="main">
 
-    <!-- <p>Search by a specific recipe name:<input type="text" v-model="name"></p>
-    <button v-on:click="searchIndex()">Search</button> -->
+      <!-- Featured Post -->
+      <article class="post featured">
+        <header class="major">
+          <h2><a>{{this.$route.query.category}}</a></h2>
+          <p>There are {{ recipes.length }} recipes to choose from!</p>
+        </header>
+      </article>
 
-    <div v-for="recipe in recipes">
-      <router-link v-bind:to="`/recipes/${recipe.recipe_id}`">
-      <h3>{{ recipe.name }}</h3>
-      </router-link>
-      <br>
-      <!-- <h5>{{ recipe.alcoholic }}</h5> -->
+      <!-- Posts -->
+      <section class="posts">
+        <article v-for="recipe in recipes">
+          <header>
+            <h2><a v-bind:href="'/recipes/' + recipe.recipe_id">{{ recipe.name }}</a></h2>
+          </header>
+          <a v-bind:href="'/recipes/' + recipe.recipe_id"><p>{{ recipe.instructions }}</p></a>
+          <!-- <ul class="actions special">
+            <li><a href="#" class="button">Full Story</a></li>
+          </ul> -->
+        </article>
+        
+      </section>
+
+      <!-- Footer -->
+      <footer>
+      </footer>
+
     </div>
-    
-
-    <!-- <div v-for="ingredient in ingredients"> -->
-    <!-- </div> -->
-   
-
-    
-    
   </div>
 </template>
 
@@ -60,16 +70,6 @@ export default {
           this.recipes = response.data;
         });
     },
-    // searchIndex: function () {
-    //   console.log("recipes searchhhhh");
-    //   // console.log(this.$route.query);
-    //   axios
-    //     .get("/api/recipes?search=name&name=" + this.name)
-    //     .then((response) => {
-    //       console.log(response.data);
-    //       this.recipes = response.data;
-    //     });
-    // },
   },
 };
 </script>
