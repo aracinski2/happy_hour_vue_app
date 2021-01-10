@@ -23,7 +23,11 @@
           <div>
             <div>
               <label>Search by a specific recipe name</label>
-              <p><input type="text" v-model="name"></p>
+              <p><ejs-autocomplete :dataSource='recipes' :fields='fields' :placeholder="waterMark2" type="text" v-model="name" :noRecordsTemplate='nTemplate'  popupHeight="0px" popupWidth="0px"></ejs-autocomplete></p>
+              <!-- <p><input type="text" v-model="name"></p> -->
+                <!-- <datalist id="ingredients">
+                  <option v-for="ingredient in ingredients">
+                </datalist> -->
               <button v-on:click="searchName()">Search</button>
             </div>
           </div>
@@ -33,9 +37,12 @@
           <div>
             <div>
               <label>Search by ingredients!</label>
-              <p><input type="text" v-model="ingredient1"></p>
+              <p><ejs-autocomplete :dataSource='ingredients' :fields='fields' :placeholder="waterMark" type="text" v-model="ingredient1"></ejs-autocomplete></p>
+              <p><ejs-autocomplete :dataSource='ingredients' :fields='fields' :placeholder="waterMark" type="text" v-model="ingredient2"></ejs-autocomplete></p>
+              <p><ejs-autocomplete :dataSource='ingredients' :fields='fields' :placeholder="waterMark" type="text" v-model="ingredient3"></ejs-autocomplete></p>
+              <!-- <p><input type="text" v-model="ingredient1"></p>
               <p><input type="text" v-model="ingredient2"></p>
-              <p><input type="text" v-model="ingredient3"></p>
+              <p><input type="text" v-model="ingredient3"></p> -->
               <button v-on:click="searchIngredient()">Search</button>
             </div>
           </div>
@@ -98,24 +105,33 @@
   </div>
 </template>
 
-<style>
-</style>
 
 <script>
 import axios from "axios";
 
+import Vue from "vue";
+import { AutoCompletePlugin } from "@syncfusion/ej2-vue-dropdowns";
+
+Vue.use(AutoCompletePlugin);
 export default {
   data: function () {
     return {
       message: "Do we have what your looking for?",
       recipes: [],
+      waterMark: "Ingredient",
+      waterMark2: "Recipe",
+      nTemplate: "",
+      ingredients: [],
+      fields: { value: "name" },
       name: "",
       ingredient1: "",
       ingredient2: "",
       ingredient3: "",
     };
   },
-  created: function () {},
+  created: function () {
+    this.ingredientsIndex();
+  },
   methods: {
     searchName: function () {
       console.log("recipes searchhhhh");
@@ -144,6 +160,19 @@ export default {
           this.recipes = response.data;
         });
     },
+    ingredientsIndex: function () {
+      console.log("ingredients index");
+      axios.get("/api/ingredients").then((response) => {
+        console.log(response.data);
+        this.ingredients = response.data;
+      });
+    },
   },
 };
 </script>
+
+<style>
+@import "../../node_modules/@syncfusion/ej2-base/styles/material.css";
+@import "../../node_modules/@syncfusion/ej2-inputs/styles/material.css";
+@import "../../node_modules/@syncfusion/ej2-vue-dropdowns/styles/material.css";
+</style>
