@@ -28,7 +28,9 @@
                 <!-- <datalist id="ingredients">
                   <option v-for="ingredient in ingredients">
                 </datalist> -->
-              <button v-on:click="searchName()">Search</button>
+              <p><button v-on:click="searchName()">Search</button></p>
+              <label>Can't decide?</label>
+              <p><button v-on:click="getRandomRecipe()">Get a Random Recipe!</button></p>
             </div>
           </div>
       </section>
@@ -165,6 +167,13 @@ export default {
       axios.get("/api/ingredients").then((response) => {
         console.log(response.data);
         this.ingredients = response.data;
+      });
+    },
+    getRandomRecipe: function () {
+      console.log("recipe random");
+      axios.get("/api/recipes").then((response) => {
+        console.log(response.data);
+        this.recipes = response.data;
       });
     },
   },
