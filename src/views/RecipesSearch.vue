@@ -165,7 +165,7 @@ export default {
     ingredientsIndex: function () {
       console.log("ingredients index");
       axios.get("/api/ingredients").then((response) => {
-        console.log(response.data);
+        // console.log(response.data);
         this.ingredients = response.data;
       });
     },
