@@ -24,6 +24,7 @@
         <header class="major">
           <h2><a>Favorites</a></h2>
         </header>
+        <h2 v-if="!isLoggedIn()">You need to be logged in to have favorites!</h2>
       </article>
 
       <!-- Posts -->
