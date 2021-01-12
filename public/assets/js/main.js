@@ -141,38 +141,69 @@
 			$navPanelToggle.addClass('alt');
 		}
 	});
-
+	console.log(localStorage.getItem("jwt"))
 	// Panel.
-	$navPanel = $(
-		'<div id="navPanel">' +
-		'<nav>' +
-		'<ul class="links">' +
-		'<li class="active"><a href="/">Home</a></li>' +
-		'<li><a href="/search">Search</a></li>' +
-		'<li><a href="/favorites">Favorites</a></li>' +
-		'<li><a href="/login">Login</a></li>' +
-		'<li><a href="/logout">Logout</a></li>' +
-		'<li><a href="/signup">Signup</a></li>' +
-		'</ul >' +
-		'<ul class="icons alt">' +
-		'<li><a href="https://www.linkedin.com/in/alexander-racinski/" class="icon brands fa-linkedin alt"><span class="label">LinkedIn</span></a></li>' +
-		'<li><a href="https://github.com/aracinski2" class="icon brands fa-github alt"><span class="label">GitHub</span></a></li>' +
-		'</ul >' +
-		'</nav>' +
-		'<a href="#navPanel" class="close"></a>' +
-		'</div>'
-	)
-		.appendTo($body)
-		.panel({
-			delay: 500,
-			hideOnClick: true,
-			hideOnSwipe: true,
-			resetScroll: true,
-			resetForms: true,
-			side: 'right',
-			target: $body,
-			visibleClass: 'is-navPanel-visible'
-		});
+	if (localStorage.getItem("jwt")) {
+		$navPanel = $(
+			'<div id="navPanel">' +
+			'<nav>' +
+			'<ul class="links">' +
+			'<li class="active"><a href="/">Home</a></li>' +
+			'<li><a href="/search">Search</a></li>' +
+			'<li><a href="/favorites">Favorites</a></li>' +
+			'<li><a href="/logout">Logout</a></li>' +
+			'</ul >' +
+			'<ul class="icons alt">' +
+			'<li><a href="https://www.linkedin.com/in/alexander-racinski/" class="icon brands fa-linkedin alt"><span class="label">LinkedIn</span></a></li>' +
+			'<li><a href="https://github.com/aracinski2" class="icon brands fa-github alt"><span class="label">GitHub</span></a></li>' +
+			'</ul >' +
+			'</nav>' +
+			'<a href="#navPanel" class="close"></a>' +
+			'</div>'
+		)
+			.appendTo($body)
+			.panel({
+				delay: 500,
+				hideOnClick: true,
+				hideOnSwipe: true,
+				resetScroll: true,
+				resetForms: true,
+				side: 'right',
+				target: $body,
+				visibleClass: 'is-navPanel-visible'
+			});
+	} else {
+		$navPanel = $(
+			'<div id="navPanel">' +
+			'<nav>' +
+			'<ul class="links">' +
+			'<li class="active"><a href="/">Home</a></li>' +
+			'<li><a href="/search">Search</a></li>' +
+			'<li><a href="/favorites">Favorites</a></li>' +
+			'<li><a href="/login">Login</a></li>' +
+			'<li><a href="/signup">Signup</a></li>' +
+			'</ul >' +
+			'<ul class="icons alt">' +
+			'<li><a href="https://www.linkedin.com/in/alexander-racinski/" class="icon brands fa-linkedin alt"><span class="label">LinkedIn</span></a></li>' +
+			'<li><a href="https://github.com/aracinski2" class="icon brands fa-github alt"><span class="label">GitHub</span></a></li>' +
+			'</ul >' +
+			'</nav>' +
+			'<a href="#navPanel" class="close"></a>' +
+			'</div>'
+		)
+			.appendTo($body)
+			.panel({
+				delay: 500,
+				hideOnClick: true,
+				hideOnSwipe: true,
+				resetScroll: true,
+				resetForms: true,
+				side: 'right',
+				target: $body,
+				visibleClass: 'is-navPanel-visible'
+			});
+	};
+
 
 	// Get inner.
 	$navPanelInner = $navPanel.children('nav');
