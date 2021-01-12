@@ -23,8 +23,8 @@
       <!-- Featured Post -->
       <article class="post featured">
         <header class="major">
-          <h2><a>What are you in<br />the mood for?</a></h2>
-          <p>Get a list of recipes based on type of alcohol<br /></p>
+          <h2><a>What are you in<br /> the mood for?</a></h2>
+          <p>Get a list of recipes based on type of alcohol below<br /></p>
           <!-- <p>OR</p> -->
           <p>Search by ingredients from the search page </p>
           <p>Or if you can't decide, get a random recipe!</p>
