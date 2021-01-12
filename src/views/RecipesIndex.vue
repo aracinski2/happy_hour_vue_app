@@ -35,9 +35,6 @@
             <h2><a v-bind:href="'/recipes/' + recipe.id">{{ recipe.name }}</a></h2>
           </header>
           <a v-bind:href="'/recipes/' + recipe.id"><p>{{ recipe.instructions }}</p></a>
-          <!-- <ul class="actions special">
-            <li><a href="#" class="button">Full Story</a></li>
-          </ul> -->
         </article>
         
       </section>

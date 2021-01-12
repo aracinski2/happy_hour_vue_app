@@ -24,10 +24,6 @@
             <div>
               <label>Search by a specific recipe name</label>
               <p><ejs-autocomplete :dataSource='recipes' :fields='fields' :placeholder="waterMark2" type="text" v-model="name" :noRecordsTemplate='nTemplate'  popupHeight="0px" popupWidth="0px"></ejs-autocomplete></p>
-              <!-- <p><input type="text" v-model="name"></p> -->
-                <!-- <datalist id="ingredients">
-                  <option v-for="ingredient in ingredients">
-                </datalist> -->
               <p><button v-on:click="searchName()">Search</button></p>
               <label>Can't decide?</label>
               <p><button v-on:click="getRandomRecipe()">Get a Random Recipe!</button></p>
@@ -42,9 +38,6 @@
               <p><ejs-autocomplete :dataSource='ingredients' :fields='fields' :placeholder="waterMark" type="text" v-model="ingredient1"></ejs-autocomplete></p>
               <p><ejs-autocomplete :dataSource='ingredients' :fields='fields' :placeholder="waterMark" type="text" v-model="ingredient2"></ejs-autocomplete></p>
               <p><ejs-autocomplete :dataSource='ingredients' :fields='fields' :placeholder="waterMark" type="text" v-model="ingredient3"></ejs-autocomplete></p>
-              <!-- <p><input type="text" v-model="ingredient1"></p>
-              <p><input type="text" v-model="ingredient2"></p>
-              <p><input type="text" v-model="ingredient3"></p> -->
               <button v-on:click="searchIngredient()">Search</button>
             </div>
           </div>
@@ -68,9 +61,6 @@
             <h2><a v-bind:href="'/recipes/' + recipe.id">{{ recipe.name }}</a></h2>
           </header>
           <a v-bind:href="'/recipes/' + recipe.id"><p>{{ recipe.instructions }}</p></a>
-          <!-- <ul class="actions special">
-            <li><a href="#" class="button">Full Story</a></li>
-          </ul> -->
         </article>
         
       </section>
@@ -80,30 +70,6 @@
       </footer>
 
     </div>
-    <!-- <h1>{{ message }}</h1>
-
-    <h3>Search by a specific recipe name:</h3>
-    <p><input type="text" v-model="name"></p> -->
-    <!-- <router-link v-bind:to="{path: `/recipes?search=name&category=${this.name}`}">
-    <h1>Search</h1>
-    </router-link> -->
-    <!-- <button v-on:click="searchName()">Search</button>
-
-    <h1>OR</h1>
-
-    <h3>Search by specific ingredients:</h3>
-    <p><input type="text" v-model="ingredient1"></p>
-    <p><input type="text" v-model="ingredient2"></p>
-    <p><input type="text" v-model="ingredient3"></p>
-    <button v-on:click="searchIngredient()">Search</button>
-
-    <div v-for="recipe in recipes">
-      <router-link v-bind:to="`/recipes/${recipe.recipe_id}`">
-      <h3>{{ recipe.name }}</h3>
-      </router-link>
-      <br>
-      <h5>{{ recipe.alcoholic }}</h5>
-    </div> -->
   </div>
 </template>
 

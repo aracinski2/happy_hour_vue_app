@@ -34,19 +34,8 @@
           </header>
           <a v-bind:href="'/recipes/' + favorite.recipe_id"><p>{{ favorite.recipe.instructions }}</p></a>
           <button v-on:click="favoritesDestroy(favorite)">Remove</button>
-          <!-- <ul class="actions special">
-            <li><a href="#" class="button">Full Story</a></li>
-          </ul> -->
         </article>
       </section>
-    </div>
-    <!-- <h1>{{ message }}</h1>
-    <div v-for="favorite in favorites">
-      <router-link v-bind:to="`/recipes/${favorite.recipe_id}`">
-        <h3> {{ favorite.recipe.name }} </h3>
-        <h5> {{ favorite.recipe.alcoholic }} </h5>
-      </router-link>
-        <button v-on:click="favoritesDestroy()">Remove</button> -->
     </div>
   </div>
 </template>
@@ -62,7 +51,6 @@ export default {
     return {
       message: "Welcome to your favorites!",
       favorites: [],
-      // favorite: [],
     };
   },
   created: function () {
