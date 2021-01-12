@@ -7,9 +7,9 @@
         <li><a href="/search">Search</a></li>
         <li><a href="/favorites">Favorites
         </a></li>
-        <li><a href="/login">Login</a></li>
-        <li><a href="/logout">Logout</a></li>
-        <li><a href="/signup">Signup</a></li>
+        <li v-if="!isLoggedIn()"><a href="/login">Login</a></li>
+        <li v-if="isLoggedIn()"><a href="/logout">Logout</a></li>
+        <li v-if="!isLoggedIn()"><a href="/signup">Signup</a></li>
       </ul>
       <ul class="icons">
         <!-- <li><a href="#" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li> -->
@@ -134,6 +134,14 @@ export default {
     };
   },
   created: function () {},
-  methods: {},
+  methods: {
+    isLoggedIn: function () {
+      if (localStorage.getItem("jwt")) {
+        return true;
+      } else {
+        return false;
+      }
+    },
+  },
 };
 </script>

@@ -7,9 +7,9 @@
         <li><a href="/search">Search</a></li>
         <li><a href="/favorites">Favorites
         </a></li>
-        <li class="active"><a href="/login">Login</a></li>
-        <li><a href="/logout">Logout</a></li>
-        <li><a href="/signup">Signup</a></li>
+        <li v-if="!isLoggedIn()" class="active"><a href="/login">Login</a></li>
+        <li v-if="isLoggedIn()"><a href="/logout">Logout</a></li>
+        <li v-if="!isLoggedIn()"><a href="/signup">Signup</a></li>
       </ul>
       <ul class="icons">
         <li><a href="https://www.linkedin.com/in/alexander-racinski/" class="icon brands fa-linkedin"><span class="label">LinkedIn</span></a></li>
@@ -69,6 +69,13 @@ export default {
           this.email = "";
           this.password = "";
         });
+    },
+    isLoggedIn: function () {
+      if (localStorage.getItem("jwt")) {
+        return true;
+      } else {
+        return false;
+      }
     },
   },
 };
