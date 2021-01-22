@@ -19,17 +19,6 @@
     </nav>
     <!-- Footer -->
     <footer id="footer">
-      <section>
-          <div>
-            <div>
-              <label>Search by a specific recipe name</label>
-              <p><ejs-autocomplete :dataSource='recipes' :fields='fields' :placeholder="waterMark2" type="text" v-model="name" :noRecordsTemplate='nTemplate'  popupHeight="0px" popupWidth="0px"></ejs-autocomplete></p>
-              <p><button v-on:click="searchName()">Search</button></p>
-              <label>Can't decide?</label>
-              <p><button v-on:click="getRandomRecipe()">Get a Random Recipe!</button></p>
-            </div>
-          </div>
-      </section>
       <section class="split contact">
         <section class="alt">
           <div>
@@ -42,6 +31,17 @@
             </div>
           </div>
         </section>
+      </section>
+      <section>
+          <div>
+            <div>
+              <label>Search by a specific recipe name</label>
+              <p><ejs-autocomplete :dataSource='recipes' :fields='fields' :placeholder="waterMark2" type="text" v-model="name" :noRecordsTemplate='nTemplate'  popupHeight="0px" popupWidth="0px"></ejs-autocomplete></p>
+              <p><button v-on:click="searchName()">Search</button></p>
+              <label>Can't decide?</label>
+              <p><button v-on:click="getRandomRecipe()">Get a Random Recipe!</button></p>
+            </div>
+          </div>
       </section>
     </footer>
     <div id="main">
